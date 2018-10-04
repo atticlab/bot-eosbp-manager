@@ -1,7 +1,7 @@
 #!/bin/sh
 # Get Schedule
 CONF=/opt/BP-manager/scripts/bp_manager.conf
-CLEOS=/opt/EOSmainNet
+CLEOS=`cat $CONF | grep 'cleos:' | awk '{print $2}'`
 PRODUSER=`cat $CONF | grep 'producer:' | awk '{print $2}'`
 PRODKEY=`$CLEOS/cleos.sh get schedule | grep $PRODUSER | awk '{print $2}'`
 NODE=`cat $CONF | grep $PRODKEY | awk -F "|" '{print $1}'`
