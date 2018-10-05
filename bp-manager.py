@@ -45,7 +45,7 @@ def get_schedule(bot, update):
     #cmd = '/opt/EOSmainNet/cleos.sh get schedule | grep atticlab'
     proc = subprocess.Popen('/opt/BP-manager/scripts/schedule.sh', stdout=subprocess.PIPE)
     output = proc.stdout.read()
-    update.message.reply_text('Schedule:\n'+ str(output))
+    update.message.reply_text(str(output))
 
 def help(bot, update):
     """Send a message when the command /help is issued."""
